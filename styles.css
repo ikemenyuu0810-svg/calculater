@@ -136,7 +136,7 @@
 
     .calc-btn-zero {
       grid-column: span 2;
-      aspect-ratio: 1.1;
+      aspect-ratio: 2.1;
     }
 
     .calc-btn svg {
