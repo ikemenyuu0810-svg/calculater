@@ -1,0 +1,268 @@
+    /* ========== グローバルスタイル（ページ背景のみ） ========== */
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* ========== 電卓コンテナ（移植可能） ========== */
+    .calculator-container {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: flex;
+      gap: 2%;
+      align-items: flex-start;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .calculator-container * {
+      box-sizing: border-box;
+    }
+
+    /* ========== 電卓本体 ========== */
+    .calculator-main {
+      flex: 1;
+      min-width: 280px;
+      max-width: 450px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 5%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .calc-display {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 6%;
+      margin-bottom: 5%;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .calc-display-sub {
+      font-size: clamp(12px, 1.2vw, 16px);
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 4px;
+      min-height: 20px;
+      word-break: break-all;
+      text-align: right;
+      width: 100%;
+    }
+
+    .calc-display-main {
+      font-size: clamp(24px, 3vw, 42px);
+      color: white;
+      font-weight: 300;
+      word-break: break-all;
+      text-align: right;
+      width: 100%;
+    }
+
+    .calc-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .calc-btn {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 5%;
+      font-size: clamp(16px, 1.5vw, 20px);
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      aspect-ratio: 1;
+    }
+
+    .calc-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .calc-btn:active {
+      transform: translateY(0);
+    }
+
+    .calc-btn-clear {
+      background: rgba(239, 68, 68, 0.3);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .calc-btn-clear:hover {
+      background: rgba(239, 68, 68, 0.4);
+    }
+
+    .calc-btn-operator {
+      background: rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.4);
+      font-size: clamp(18px, 1.8vw, 24px);
+    }
+
+    .calc-btn-operator:hover {
+      background: rgba(59, 130, 246, 0.4);
+    }
+
+    .calc-btn-equals {
+      background: rgba(34, 197, 94, 0.3);
+      border-color: rgba(34, 197, 94, 0.4);
+      grid-column: span 2;
+      aspect-ratio: 2.1;
+    }
+
+    .calc-btn-equals:hover {
+      background: rgba(34, 197, 94, 0.4);
+    }
+
+    .calc-btn-zero {
+      grid-column: span 2;
+      aspect-ratio: 2.1;
+    }
+
+    .calc-btn svg {
+      width: 1.2em;
+      height: 1.2em;
+      fill: white;
+    }
+
+    /* ========== 履歴パネル ========== */
+    .history-panel {
+      flex: 0 0 35%;
+      min-width: 250px;
+      max-width: 350px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 5%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      max-height: 600px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .history-title {
+      color: white;
+      font-size: clamp(16px, 1.5vw, 18px);
+      font-weight: 600;
+    }
+
+    .history-clear-btn {
+      background: rgba(239, 68, 68, 0.3);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: clamp(11px, 1vw, 12px);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .history-clear-btn:hover {
+      background: rgba(239, 68, 68, 0.4);
+    }
+
+    .history-clear-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: white;
+    }
+
+    .history-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .history-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .history-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+    }
+
+    .history-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+    }
+
+    .history-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .history-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(-4px);
+    }
+
+    .history-expression {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: clamp(12px, 1.1vw, 14px);
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+
+    .history-result {
+      color: white;
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-weight: 600;
+    }
+
+    .history-empty {
+      color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      margin-top: 40px;
+      font-size: clamp(12px, 1.1vw, 14px);
+    }
+
+    /* ========== レスポンシブ ========== */
+    @media (max-width: 768px) {
+      .calculator-container {
+        flex-direction: column;
+      }
+      .calculator-main, .history-panel {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
